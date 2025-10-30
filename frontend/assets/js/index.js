@@ -1,4 +1,30 @@
-// ===== HOME PAGE FUNCTIONALITY =====
+// Particle System on Hover
+const particleContainer = document.getElementById('particle-container');
+let lastSpawn = 0;
+const spawnDelay = 50;
+
+const colors = ['#ff1493', '#ff69b4', '#ff6b9d', '#c71585', '#8338ec', '#3a86ff'];
+
+document.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastSpawn < spawnDelay) return;
+    lastSpawn = now;
+
+    const particle = document.createElement('div');
+    particle.className = 'hover-particle';
+    particle.style.left = e.clientX + 'px';
+    particle.style.top = e.clientY + 'px';
+    particle.style.width = Math.random() * 12 + 6 + 'px';
+    particle.style.height = particle.style.width;
+    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.animationDuration = Math.random() * 2 + 3 + 's';
+
+    particleContainer.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, 5000);
+});
 
 // Navbar scroll effect
 window.addEventListener('scroll', function() {
@@ -20,87 +46,40 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
         }
     });
 });
 
-// Animation on scroll
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.feature-card, .about-content, .contact-card');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
+// Animate feature cards on scroll
+const featureCards = document.querySelectorAll('.feature-card');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
     });
-}
+}, { threshold: 0.1 });
 
-// Initialize animation styles
-function initAnimations() {
-    const elements = document.querySelectorAll('.feature-card, .about-content, .contact-card');
-    
-    elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'all 0.6s ease';
-    });
-}
-
-// Contact form handling
-function initContactForm() {
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        const submitBtn = contactForm.querySelector('button[type="button"]');
-        
-        submitBtn.addEventListener('click', function() {
-            const inputs = contactForm.querySelectorAll('input, textarea');
-            let allFilled = true;
-            
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    allFilled = false;
-                    input.style.borderColor = 'var(--primary-pink)';
-                    
-                    setTimeout(() => {
-                        input.style.borderColor = '';
-                    }, 2000);
-                }
-            });
-            
-            if (allFilled) {
-                // Simulate form submission
-                const originalText = this.textContent;
-                this.textContent = 'Sending...';
-                this.disabled = true;
-                
-                setTimeout(() => {
-                    this.textContent = 'Message Sent!';
-                    this.style.background = '#28a745';
-                    
-                    setTimeout(() => {
-                        this.textContent = originalText;
-                        this.disabled = false;
-                        this.style.background = '';
-                        contactForm.reset();
-                    }, 2000);
-                }, 1500);
-            } else {
-                showMessage('Please fill in all fields', 'error');
-            }
-        });
-    }
-}
+featureCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'all 0.6s ease';
+    observer.observe(card);
+});
 
 // Counter animation for stats
-function initCounterAnimation() {
+function animateStats() {
     const statItems = document.querySelectorAll('.stat-item h3');
     let animated = false;
     
-    function animateStats() {
+    function startCounting() {
         if (animated) return;
         
         const heroSection = document.querySelector('.hero-section');
@@ -126,44 +105,87 @@ function initCounterAnimation() {
         }
     }
     
-    window.addEventListener('scroll', animateStats);
+    window.addEventListener('scroll', startCounting);
+    // Initial check in case stats are already in view
+    startCounting();
 }
 
-// Initialize all home page functionality when DOM is loaded
+// Initialize all animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if we're on the home page
-    if (document.querySelector('.hero-section')) {
-        initAnimations();
-        initContactForm();
-        initCounterAnimation();
+    animateStats();
+    
+    // Add loading animation to hero section
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        heroContent.style.opacity = '0';
+        heroContent.style.transform = 'translateY(30px)';
         
-        // Add scroll event listener for animations
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // Initial check for elements in view
-        animateOnScroll();
+        setTimeout(() => {
+            heroContent.style.transition = 'all 0.8s ease';
+            heroContent.style.opacity = '1';
+            heroContent.style.transform = 'translateY(0)';
+        }, 300);
     }
     
-    // Add floating animation to feature cards
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.2}s`;
-    });
-    
-    // Add hover effect to social buttons
-    const socialBtns = document.querySelectorAll('.social-btn');
-    socialBtns.forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px) scale(1.1)';
+    // Add hover effect to buttons
+    const buttons = document.querySelectorAll('.btn-pink, .btn-outline-pink');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
         });
         
-        btn.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Add click effect to buttons
+    buttons.forEach(button => {
+        button.addEventListener('mousedown', function() {
+            this.style.transform = 'translateY(-1px)';
+        });
+        
+        button.addEventListener('mouseup', function() {
+            this.style.transform = 'translateY(-3px)';
         });
     });
 });
 
-// Typing effect for hero title (optional)
+// Handle mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', function() {
+            navbarCollapse.classList.toggle('show');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+    }
+});
+
+// Add parallax effect to background shapes
+window.addEventListener('scroll', function() {
+    const shapes = document.querySelectorAll('.shape');
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    shapes.forEach((shape, index) => {
+        const speed = 0.3 + (index * 0.1);
+        shape.style.transform = `translateY(${rate * speed}px)`;
+    });
+});
+
+// Add typing effect to hero title (optional)
 function initTypingEffect() {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
@@ -175,7 +197,7 @@ function initTypingEffect() {
             if (i < text.length) {
                 heroTitle.textContent += text.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, 50);
             }
         }
         

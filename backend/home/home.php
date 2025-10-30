@@ -1,23 +1,28 @@
-<a href="../logout/logout.php">Log Out</a>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Nexus</title>
+    <title>Home - Pookie Sanda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../frontend/assets/css/style.css">
 </head>
 <body>
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Particle Container -->
+    <div id="particle-container"></div>
+
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <span class="brand-gradient">Nexus</span>
-            </a>
+            <a class="navbar-brand" href="#">Pookie Sanda</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,8 +40,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link login-btn" href="login.html">Sign In</a>
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-pink" href="../logout/logout.php">Log out</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-pink" href="../logout/logout.php">Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -45,86 +53,45 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-        
         <div class="container">
-            <div class="row align-items-center min-vh-100">
+            <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-content">
                         <h1 class="hero-title">
-                            Welcome to <span class="text-gradient">Nexus</span>
+                            Welcome to <span class="text-gradient">Pookie Sanda</span>
                         </h1>
                         <p class="hero-subtitle">
-                            Your gateway to exclusive content and seamless digital experiences. 
-                            Join thousands of users who trust Nexus for their daily needs.
+                            Your ultimate destination for exclusive content and premium digital experiences. 
+                            Join our community and discover a world of possibilities.
                         </p>
                         <div class="hero-buttons">
-                            <a href="registration.php" class="btn btn-primary me-3">
+                            <a href="registration.php" class="btn btn-pink">
                                 Get Started Free
                             </a>
-                            <a href="#features" class="btn btn-outline">
-                                Learn More
+                            <a href="#features" class="btn btn-outline-pink">
+                                Explore Features
                             </a>
                         </div>
                         <div class="hero-stats">
                             <div class="stat-item">
-                                <h3>10K+</h3>
+                                <h3>50K+</h3>
                                 <p>Active Users</p>
                             </div>
                             <div class="stat-item">
                                 <h3>99.9%</h3>
-                                <p>Uptime</p>
+                                <p>Uptime Guarantee</p>
                             </div>
                             <div class="stat-item">
                                 <h3>24/7</h3>
-                                <p>Support</p>
+                                <p>Premium Support</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="hero-image">
-                        <div class="glass-card">
-                            <div class="card-content">
-                                <div class="app-preview">
-                                    <div class="app-header">
-                                        <div class="app-dots">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="app-body">
-                                        <div class="data-item">
-                                            <i class="fas fa-chart-line"></i>
-                                            <div>
-                                                <h5>Analytics Dashboard</h5>
-                                                <p>Real-time insights</p>
-                                            </div>
-                                        </div>
-                                        <div class="data-item">
-                                            <i class="fas fa-users"></i>
-                                            <div>
-                                                <h5>Team Collaboration</h5>
-                                                <p>Work together seamlessly</p>
-                                            </div>
-                                        </div>
-                                        <div class="data-item">
-                                            <i class="fas fa-shield-alt"></i>
-                                            <div>
-                                                <h5>Secure Storage</h5>
-                                                <p>Your data is protected</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- You can add an image or illustration here -->
+                    <div style="text-align: center; opacity: 0.8;">
+                        <i class="fas fa-gem" style="font-size: 300px; background: linear-gradient(45deg, var(--primary-pink), var(--light-pink)); -webkit-background-clip: text; background-clip: text; color: transparent;"></i>
                     </div>
                 </div>
             </div>
@@ -136,25 +103,45 @@
         <div class="container">
             <div class="section-header">
                 <h2>Amazing Features</h2>
-                <p>Discover what makes Nexus the perfect choice for you</p>
+                <p>Discover what makes Pookie Sanda the perfect choice for your digital journey</p>
             </div>
             <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure & Private</h3>
+                        <p>Your data is protected with military-grade encryption and advanced security protocols.</p>
+                    </div>
+                </div>
                 <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
                         <h3>Lightning Fast</h3>
-                        <p>Experience blazing fast performance with our optimized infrastructure and cutting-edge technology.</p>
+                        <p>Experience blazing fast performance with our optimized infrastructure and CDN network.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                        <h3>Secure & Safe</h3>
-                        <p>Your data is protected with enterprise-grade security and end-to-end encryption.</p>
+                        <h3>Premium Content</h3>
+                        <p>Access exclusive content and features unavailable anywhere else on the platform.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Driven</h3>
+                        <p>Join thousands of active users in our vibrant and supportive community.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -166,119 +153,28 @@
                         <p>Perfect experience on any device - desktop, tablet, or mobile phone.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about-content">
-                        <h2>Why Choose Nexus?</h2>
-                        <p>Nexus is built with modern technology and user experience in mind. We're committed to providing the best platform for our users.</p>
-                        
-                        <div class="about-features">
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Modern Technology Stack</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>24/7 Customer Support</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Regular Updates & Improvements</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>User-Friendly Interface</span>
-                            </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync"></i>
                         </div>
-                        
-                        <a href="registration.php" class="btn btn-primary mt-4">
-                            Join Now
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-image">
-                        <div class="floating-cards">
-                            <div class="card card-1">
-                                <i class="fas fa-rocket"></i>
-                                <h4>Performance</h4>
-                            </div>
-                            <div class="card card-2">
-                                <i class="fas fa-lock"></i>
-                                <h4>Security</h4>
-                            </div>
-                            <div class="card card-3">
-                                <i class="fas fa-heart"></i>
-                                <h4>User Love</h4>
-                            </div>
-                        </div>
+                        <h3>Regular Updates</h3>
+                        <p>We constantly improve and add new features based on user feedback.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Have questions? We'd love to hear from you</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="contact-card">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="contact-info">
-                                    <h3>Contact Information</h3>
-                                    <div class="contact-item">
-                                        <i class="fas fa-envelope"></i>
-                                        <div>
-                                            <h5>Email</h5>
-                                            <p>support@nexus.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="contact-item">
-                                        <i class="fas fa-phone"></i>
-                                        <div>
-                                            <h5>Phone</h5>
-                                            <p>+1 (555) 123-4567</p>
-                                        </div>
-                                    </div>
-                                    <div class="contact-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <div>
-                                            <h5>Address</h5>
-                                            <p>123 Digital Street, Tech City</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <form class="contact-form">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
-                                    </div>
-                                    <button type="button" class="btn btn-primary w-100">Send Message</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Join thousands of satisfied users and experience the difference with Pookie Sanda. Create your account today and unlock a world of exclusive content.</p>
+                <a href="registration.php" class="btn btn-pink btn-lg">
+                    Create Your Account
+                </a>
             </div>
         </div>
     </section>
@@ -287,13 +183,27 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="footer-brand">
-                        <h3 class="brand-gradient">Nexus</h3>
-                        <p>Your gateway to exclusive content and digital experiences.</p>
+                        <h3>Pookie Sanda</h3>
+                        <p>Your gateway to exclusive content and premium digital experiences.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-2 col-md-6">
                     <h5>Quick Links</h5>
                     <ul class="footer-links">
                         <li><a href="#">Home</a></li>
@@ -302,17 +212,27 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6">
+                    <h5>Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <h5>Legal</h5>
                     <ul class="footer-links">
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Nexus. All rights reserved.</p>
+                <p>&copy; 2024 Pookie Sanda. All rights reserved. Made with ❤️ for amazing users.</p>
             </div>
         </div>
     </footer>
