@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Pookie Sanda</title>
+    <title>Dashboard - Pookie Sanda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../frontend/assets/css/style.css">
+    <link rel="stylesheet" href="../backend_assets/css/style.css">
 </head>
 <body>
     <!-- Background Shapes -->
@@ -16,228 +16,372 @@
         <div class="shape"></div>
     </div>
 
-    <!-- Particle Container -->
-    <div id="particle-container"></div>
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <i class="fas fa-gem"></i>
+                    <span>Pookie Sanda</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Pookie Sanda</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <a class="btn btn-pink" href="../logout/logout.php">Log out</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <a class="btn btn-pink" href="../logout/logout.php">Dashboard</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-title">MAIN</div>
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                        <span class="badge">24</span>
+                    </a>
+                </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h1 class="hero-title">
-                            Welcome to <span class="text-gradient">Pookie Sanda</span>
-                        </h1>
-                        <p class="hero-subtitle">
-                            Your ultimate destination for exclusive content and premium digital experiences. 
-                            Join our community and discover a world of possibilities.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="registration.php" class="btn btn-pink">
-                                Get Started Free
-                            </a>
-                            <a href="#features" class="btn btn-outline-pink">
-                                Explore Features
-                            </a>
-                        </div>
-                        <div class="hero-stats">
-                            <div class="stat-item">
-                                <h3>50K+</h3>
-                                <p>Active Users</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3>99.9%</h3>
-                                <p>Uptime Guarantee</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3>24/7</h3>
-                                <p>Premium Support</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="nav-section">
+                    <div class="nav-title">CONTENT</div>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Posts</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-images"></i>
+                        <span>Media</span>
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        <span>Comments</span>
+                        <span class="badge">8</span>
+                    </a>
                 </div>
-                <div class="col-lg-6">
-                    <!-- You can add an image or illustration here -->
-                    <div style="text-align: center; opacity: 0.8;">
-                        <i class="fas fa-gem" style="font-size: 300px; background: linear-gradient(45deg, var(--primary-pink), var(--light-pink)); -webkit-background-clip: text; background-clip: text; color: transparent;"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Amazing Features</h2>
-                <p>Discover what makes Pookie Sanda the perfect choice for your digital journey</p>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Secure & Private</h3>
-                        <p>Your data is protected with military-grade encryption and advanced security protocols.</p>
-                    </div>
+                <div class="nav-section">
+                    <div class="nav-title">SYSTEM</div>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security</span>
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-database"></i>
+                        <span>Backups</span>
+                    </a>
                 </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3>Lightning Fast</h3>
-                        <p>Experience blazing fast performance with our optimized infrastructure and CDN network.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3>Premium Content</h3>
-                        <p>Access exclusive content and features unavailable anywhere else on the platform.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Community Driven</h3>
-                        <p>Join thousands of active users in our vibrant and supportive community.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3>Responsive Design</h3>
-                        <p>Perfect experience on any device - desktop, tablet, or mobile phone.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-sync"></i>
-                        </div>
-                        <h3>Regular Updates</h3>
-                        <p>We constantly improve and add new features based on user feedback.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </nav>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Get Started?</h2>
-                <p>Join thousands of satisfied users and experience the difference with Pookie Sanda. Create your account today and unlock a world of exclusive content.</p>
-                <a href="registration.php" class="btn btn-pink btn-lg">
-                    Create Your Account
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=ff1493&color=fff" alt="Admin">
+                    </div>
+                    <div class="user-info">
+                        <div class="name">Admin User</div>
+                        <div class="role">Administrator</div>
+                    </div>
+                </div>
+                <a href="../logout/logout.php" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>
-        </div>
-    </section>
+        </aside>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-brand">
-                        <h3>Pookie Sanda</h3>
-                        <p>Your gateway to exclusive content and premium digital experiences.</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <div class="page-info">
+                            <h1 class="page-title">Dashboard</h1>
+                            <div class="breadcrumb">
+                                <span>Home</span> / <span class="active">Dashboard</span>
+                            </div>
+                        </div>
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" class="search-input" placeholder="Search...">
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-actions">
+                            <button class="header-btn notification-btn">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-badge">3</span>
+                            </button>
+                            <button class="header-btn message-btn">
+                                <i class="fas fa-envelope"></i>
+                                <span class="notification-badge">5</span>
+                            </button>
+                            <div class="user-menu">
+                                <button class="user-menu-btn">
+                                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=ff1493&color=fff" alt="Admin" class="user-avatar">
+                                    <span class="user-name">Admin User</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5>Quick Links</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+            </header>
+
+            <!-- Stats Cards -->
+            <section class="stats-section">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="stat-card">
+                            <div class="stat-icon users">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>2,847</h3>
+                                <p>Total Users</p>
+                            </div>
+                            <div class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>12%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="stat-card">
+                            <div class="stat-icon revenue">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>$24,500</h3>
+                                <p>Total Revenue</p>
+                            </div>
+                            <div class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="stat-card">
+                            <div class="stat-icon orders">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>1,234</h3>
+                                <p>New Orders</p>
+                            </div>
+                            <div class="stat-trend down">
+                                <i class="fas fa-arrow-down"></i>
+                                <span>3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="stat-card">
+                            <div class="stat-icon growth">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>45.2%</h3>
+                                <p>Growth Rate</p>
+                            </div>
+                            <div class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>15%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Resources</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
+            </section>
+
+            <!-- Charts and Analytics -->
+            <section class="analytics-section">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="chart-card">
+                            <div class="card-header">
+                                <h3>Revenue Analytics</h3>
+                                <div class="chart-controls">
+                                    <select class="form-select">
+                                        <option>Last 7 days</option>
+                                        <option>Last 30 days</option>
+                                        <option>Last 90 days</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-card">
+                            <div class="card-header">
+                                <h3>Traffic Sources</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="trafficChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Legal</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">GDPR</a></li>
-                    </ul>
+            </section>
+
+            <!-- Recent Activity & Users -->
+            <section class="activity-section">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="activity-card">
+                            <div class="card-header">
+                                <h3>Recent Activity</h3>
+                                <a href="#" class="view-all">View All</a>
+                            </div>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff69b4&color=fff" alt="User">
+                                    </div>
+                                    <div class="activity-content">
+                                        <p><strong>John Doe</strong> created a new post</p>
+                                        <span class="activity-time">2 minutes ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=8338ec&color=fff" alt="User">
+                                    </div>
+                                    <div class="activity-content">
+                                        <p><strong>Jane Smith</strong> updated profile</p>
+                                        <span class="activity-time">15 minutes ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=3a86ff&color=fff" alt="User">
+                                    </div>
+                                    <div class="activity-content">
+                                        <p><strong>Mike Johnson</strong> made a purchase</p>
+                                        <span class="activity-time">1 hour ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Sarah+Wilson&background=ff1493&color=fff" alt="User">
+                                    </div>
+                                    <div class="activity-content">
+                                        <p><strong>Sarah Wilson</strong> commented on a post</p>
+                                        <span class="activity-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="users-card">
+                            <div class="card-header">
+                                <h3>Recent Users</h3>
+                                <a href="#" class="view-all">View All</a>
+                            </div>
+                            <div class="users-list">
+                                <div class="user-item">
+                                    <div class="user-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Alex+Brown&background=ff69b4&color=fff" alt="User">
+                                    </div>
+                                    <div class="user-info">
+                                        <h5>Alex Brown</h5>
+                                        <p>alex@example.com</p>
+                                    </div>
+                                    <div class="user-status online"></div>
+                                </div>
+                                <div class="user-item">
+                                    <div class="user-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Lisa+Taylor&background=8338ec&color=fff" alt="User">
+                                    </div>
+                                    <div class="user-info">
+                                        <h5>Lisa Taylor</h5>
+                                        <p>lisa@example.com</p>
+                                    </div>
+                                    <div class="user-status away"></div>
+                                </div>
+                                <div class="user-item">
+                                    <div class="user-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Tom+Wilson&background=3a86ff&color=fff" alt="User">
+                                    </div>
+                                    <div class="user-info">
+                                        <h5>Tom Wilson</h5>
+                                        <p>tom@example.com</p>
+                                    </div>
+                                    <div class="user-status offline"></div>
+                                </div>
+                                <div class="user-item">
+                                    <div class="user-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Emma+Davis&background=ff1493&color=fff" alt="User">
+                                    </div>
+                                    <div class="user-info">
+                                        <h5>Emma Davis</h5>
+                                        <p>emma@example.com</p>
+                                    </div>
+                                    <div class="user-status online"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Pookie Sanda. All rights reserved. Made with ❤️ for amazing users.</p>
-            </div>
-        </div>
-    </footer>
+            </section>
+
+            <!-- Quick Stats -->
+            <section class="quick-stats-section">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="quick-stat">
+                            <div class="quick-stat-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="quick-stat-info">
+                                <h4>12.5K</h4>
+                                <p>Page Views</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quick-stat">
+                            <div class="quick-stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="quick-stat-info">
+                                <h4>3m 24s</h4>
+                                <p>Avg. Session</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="quick-stat">
+                            <div class="quick-stat-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="quick-stat-info">
+                                <h4>68%</h4>
+                                <p>Bounce Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../frontend/assets/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../backend_assets/js/index.js"></script>
 </body>
 </html>
