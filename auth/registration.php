@@ -1,6 +1,11 @@
 <?php
 // Start session
 session_start();
+
+// Block logined in  user
+if(isset($_SESSION['author_id'])){
+    header('location: ../backend/home/home.php');
+}
 ?>
 
 <!DOCTYPE html>
