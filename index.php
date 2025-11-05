@@ -1,3 +1,13 @@
+<?php
+
+// Database connection
+include 'config/database.php';
+
+// Start Session 
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +17,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./frontend/assets/css/style.css">
+
+      <!-- Temes Fav Icon -->
+    <link rel="shortcut icon" href="public/assets/images/CPOOKIE SANDA .png" type="image/x-icon">
+
 </head>
 <body>
     <!-- Background Shapes -->
@@ -40,9 +54,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+
+                    <!-- Different button for login User and log out user -->
+                    <?php if(isset($_SESSION['author_id'])) : ?>
                     <li class="nav-item ms-3">
                         <a class="btn btn-pink" href="./backend/home/home.php">Dashboard</a>
                     </li>
+                    <?php else : ?>
+                        <li class="nav-item ms-3">
+                        <a class="btn btn-pink" href="./backend/home/home.php">Login</a>
+                    </li>
+                    <?php endif; ?>
+
                 </ul>
             </div>
         </div>
@@ -88,7 +111,8 @@
                 <div class="col-lg-6">
                     <!-- You can add an image or illustration here -->
                     <div style="text-align: center; opacity: 0.8;">
-                        <i class="fas fa-gem" style="font-size: 300px; background: linear-gradient(45deg, var(--primary-pink), var(--light-pink)); -webkit-background-clip: text; background-clip: text; color: transparent;"></i>
+                        <img style="font-size: 300px; background: linear-gradient(45deg, var(--primary-pink), var(--light-pink)); -webkit-background-clip: text; background-clip: text; color: transparent;" src="public/assets/images/CPOOKIE SANDA .png" alt="">
+                        <!-- <i class="fas fa-gem" style="font-size: 300px; background: linear-gradient(45deg, var(--primary-pink), var(--light-pink)); -webkit-background-clip: text; background-clip: text; color: transparent;"></i> -->
                     </div>
                 </div>
             </div>
