@@ -6,6 +6,11 @@ include 'config/database.php';
 // Start Session 
 session_start();
 
+// Querry For users
+$users_querry = "SELECT * FROM users";
+$users = mysqli_query($db, $users_querry);
+$total_users = mysqli_num_rows($users); 
+
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +99,7 @@ session_start();
                         </div>
                         <div class="hero-stats">
                             <div class="stat-item">
-                                <h3>50K+</h3>
+                                <h3><?= $total_users ?>+</h3>
                                 <p>Active Users</p>
                             </div>
                             <div class="stat-item">

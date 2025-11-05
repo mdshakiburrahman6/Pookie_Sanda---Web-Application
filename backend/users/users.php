@@ -12,6 +12,9 @@ $users_querry = "SELECT * FROM users";
 $users = mysqli_query($db, $users_querry);
 $total_users = mysqli_num_rows($users); 
 
+$users_querry_desc = "SELECT * FROM users ORDER BY id DESC";
+$users_desc = mysqli_query($db, $users_querry_desc);
+
 
 ?>
 

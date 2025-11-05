@@ -13,6 +13,10 @@ $users_querry = "SELECT * FROM users";
 $users = mysqli_query($db, $users_querry);
 $total_users = mysqli_num_rows($users); 
 
+$users_querry_desc = "SELECT * FROM users ORDER BY id DESC LIMIT 5";
+$users_desc = mysqli_query($db, $users_querry_desc);
+
+
 ?>
 
             <!-- Stats Cards -->
@@ -124,42 +128,29 @@ $total_users = mysqli_num_rows($users);
                                 <a href="#" class="view-all">View All</a>
                             </div>
                             <div class="activity-list">
-                                <div class="activity-item">
-                                    <div class="activity-avatar">
-                                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff69b4&color=fff" alt="User">
-                                    </div>
-                                    <div class="activity-content">
-                                        <p><strong>John Doe</strong> created a new post</p>
-                                        <span class="activity-time">2 minutes ago</span>
-                                    </div>
-                                </div>
-                                <div class="activity-item">
-                                    <div class="activity-avatar">
-                                        <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=8338ec&color=fff" alt="User">
-                                    </div>
-                                    <div class="activity-content">
-                                        <p><strong>Jane Smith</strong> updated profile</p>
-                                        <span class="activity-time">15 minutes ago</span>
-                                    </div>
-                                </div>
-                                <div class="activity-item">
-                                    <div class="activity-avatar">
-                                        <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=3a86ff&color=fff" alt="User">
-                                    </div>
-                                    <div class="activity-content">
-                                        <p><strong>Mike Johnson</strong> made a purchase</p>
-                                        <span class="activity-time">1 hour ago</span>
-                                    </div>
-                                </div>
-                                <div class="activity-item">
-                                    <div class="activity-avatar">
-                                        <img src="https://ui-avatars.com/api/?name=Sarah+Wilson&background=ff1493&color=fff" alt="User">
-                                    </div>
-                                    <div class="activity-content">
-                                        <p><strong>Sarah Wilson</strong> commented on a post</p>
-                                        <span class="activity-time">2 hours ago</span>
-                                    </div>
-                                </div>
+
+<!-- ************************************************************************************************************** -->
+                                <!-- Recent Post -->
+                                    <?php
+                                        $serial = 1;
+                                        foreach ($users_desc as $user):
+                                            if($user['id'] == $_SESSION['author_id']){
+                                                continue;
+                                            }
+                                    ?>
+                                        <div class="activity-item">
+                                        <div style="padding-right: 60px;" class="activity-avatar">
+                                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=ff69b4&color=fff" alt="User">
+                                        </div>
+                                        <div class="activity-content">
+                                                <p><strong><?= $user['name']; ?> </strong> created a new account</p>
+                                                <span class="activity-time">2 minutes ago</span>
+                                            </div>
+                                        </div>
+                                     <?php endforeach; ?>
+
+                                <!-- Recent Post End -->
+<!-- ************************************************************************************************************** -->
                             </div>
                         </div>
                     </div>
@@ -170,17 +161,32 @@ $total_users = mysqli_num_rows($users);
                                 <a href="#" class="view-all">View All</a>
                             </div>
                             <div class="users-list">
-                                <div class="user-item">
-                                    <div class="user-avatar">
-                                        <img src="https://ui-avatars.com/api/?name=Alex+Brown&background=ff69b4&color=fff" alt="User">
-                                    </div>
-                                    <div class="user-info">
-                                        <h5>Alex Brown</h5>
-                                        <p>alex@example.com</p>
-                                    </div>
-                                    <div class="user-status online"></div>
-                                </div>
-                                <div class="user-item">
+
+ <!-- ************************************************************************************************************** -->
+                                <!-- Recent users -->
+                                    <?php
+                                        $serial = 1;
+                                        foreach ($users_desc as $user):
+                                            if($user['id'] == $_SESSION['author_id']){
+                                                continue;
+                                            }
+                                    ?>
+                                        <div class="user-item">
+                                            <div class="user-avatar" style="padding-right: 60px;">
+                                                <img src="https://ui-avatars.com/api/?name=Alex+Brown&background=ff69b4&color=fff" alt="User">
+                                            </div>
+                                            <div class="user-info">
+                                                <h5><?= $user['name'] ?></h5>
+                                                <p><?= $user['email'] ?></p>
+                                            </div>
+                                        <div class="user-status online"></div>
+                                        </div>
+                                     <?php endforeach; ?>
+
+                                <!-- Recent users End -->
+<!-- ************************************************************************************************************** -->    
+                                
+                                <!-- <div class="user-item">
                                     <div class="user-avatar">
                                         <img src="https://ui-avatars.com/api/?name=Lisa+Taylor&background=8338ec&color=fff" alt="User">
                                     </div>
@@ -209,7 +215,7 @@ $total_users = mysqli_num_rows($users);
                                         <p>emma@example.com</p>
                                     </div>
                                     <div class="user-status online"></div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

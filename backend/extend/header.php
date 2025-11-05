@@ -127,7 +127,7 @@ $user = mysqli_fetch_assoc($connect);
                         <img src="https://ui-avatars.com/api/?name=Admin+User&background=ff1493&color=fff" alt="Admin">
                     </div>
                     <div class="user-info">
-                        <div class="name">Admin User</div>
+                        <div class="name"><?= $user['name'] ?></div>
                         <div class="role">Administrator</div>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ $user = mysqli_fetch_assoc($connect);
                             <div class="user-menu">
                                 <button class="user-menu-btn">
                                     <img src="https://ui-avatars.com/api/?name=Admin+User&background=ff1493&color=fff" alt="Admin" class="user-avatar">
-                                    <span class="user-name">Admin User</span>
+                                    <span class="user-name"><?= $user['name'] ?></span>
                                     <i class="fas fa-chevron-down"></i>
                                 </button>
                             </div>
