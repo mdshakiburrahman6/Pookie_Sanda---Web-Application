@@ -7,49 +7,13 @@ include '../../config/database.php';
 // Connect header
 include '../extend/header.php';
 
-// 
 
+// Querry For users
+$users_querry = "SELECT * FROM users";
+$users = mysqli_query($db, $users_querry);
+$total_users = mysqli_num_rows($users); 
 
 ?>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Top Header -->
-            <header class="top-header">
-                <div class="header-content">
-                    <div class="header-left">
-                        <div class="page-info">
-                            <h1 class="page-title">Dashboard</h1>
-                            <div class="breadcrumb">
-                                <span>Home</span> / <span class="active">Dashboard</span>
-                            </div>
-                        </div>
-                        <div class="search-container">
-                            <i class="fas fa-search search-icon"></i>
-                            <input type="text" class="search-input" placeholder="Search...">
-                        </div>
-                    </div>
-                    <div class="header-right">
-                        <div class="header-actions">
-                            <button class="header-btn notification-btn">
-                                <i class="fas fa-bell"></i>
-                                <span class="notification-badge">3</span>
-                            </button>
-                            <button class="header-btn message-btn">
-                                <i class="fas fa-envelope"></i>
-                                <span class="notification-badge">5</span>
-                            </button>
-                            <div class="user-menu">
-                                <button class="user-menu-btn">
-                                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=ff1493&color=fff" alt="Admin" class="user-avatar">
-                                    <span class="user-name">Admin User</span>
-                                    <i class="fas fa-chevron-down"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
 
             <!-- Stats Cards -->
             <section class="stats-section">
@@ -60,7 +24,7 @@ include '../extend/header.php';
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="stat-info">
-                                <h3>2,847</h3>
+                                <h3> <?= $total_users ?> </h3>
                                 <p>Total Users</p>
                             </div>
                             <div class="stat-trend up">
